@@ -1,3 +1,4 @@
 # FPSRadar
+An universal FPS Game Radar for some study use.
 
-[Edit in StackBlitz next generation editor ⚡️](https://stackblitz.com/~/github.com/Cross2pro/FPSRadar)
+Enjoy it.
