@@ -2,14 +2,7 @@ export class DataManager {
   constructor() {
     this.targets = new Map();
     this.callbacks = [];
-    this.setupMQTT();
     this.setupWebSocket();
-  }
-
-  setupMQTT() {
-    // MQTT setup would go here in a real implementation
-    // For this example, we'll just use WebSocket
-    console.log('MQTT connection would be initialized here');
   }
 
   setupWebSocket() {
@@ -27,11 +20,12 @@ export class DataManager {
 
       this.ws.onclose = () => {
         document.getElementById('connectionStatus').textContent = 'Disconnected';
-        // Attempt to reconnect after 5 seconds
+        // 5秒后尝试重新连接
         setTimeout(() => this.setupWebSocket(), 5000);
       };
     } catch (error) {
-      console.log('WebSocket connection failed, using mock data only');
+      console.error('WebSocket connection failed:', error);
+      document.getElementById('connectionStatus').textContent = 'Connection Failed';
     }
   }
 
